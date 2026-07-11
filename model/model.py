@@ -33,7 +33,7 @@ class Model:
         max_conn = max(nx.connected_components(self._graph), key=len)
         lista_max_conn = []
         for u in max_conn:
-            pesi = [d["weight"] for _, _, d in self._graph.edges(u, data=True)]
+            pesi = [d["weight"] for i,i, d in self._graph.edges(u, data=True)]
             peso_min = max(pesi) if pesi else 0
             lista_max_conn.append((u, peso_min))
         lista_max_conn.sort(key=lambda x: x[1], reverse=True)
